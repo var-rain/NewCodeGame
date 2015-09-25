@@ -8,8 +8,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 /**
- * 加载资源时显示的Screen
- * NewCode 创建于 2015/9/22.
+ * 项目名称: Game.
+ * 项目所属: NewCode.
+ * 创 建 人: Var "雨中行".
+ * 创建时间: 2015/9/25 16:55.
+ * 类 描 述: 显示加载中的Screen
  */
 public class LoadScreen implements Screen {
 
