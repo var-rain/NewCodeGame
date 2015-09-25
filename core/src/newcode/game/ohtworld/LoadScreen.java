@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * 项目所属: NewCode.
  * 创 建 人: Var "雨中行".
  * 创建时间: 2015/9/25 16:56.
- * 类 描 述: 显示正在加载中
+ * 类 描 述: 加载资源时显示的正在加载中
  */
 public class LoadScreen implements Screen {
 
