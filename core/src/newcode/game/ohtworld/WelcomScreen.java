@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 /**
- * 显示logo的Screen
+ * 用于显示logo的Screen.
  * NewCode 创建于 2015/9/22.
  */
 public class WelcomScreen implements Screen {
