@@ -34,8 +34,6 @@ public class WelcomScreen implements Screen {
         texture = new Texture(Gdx.files.internal("logo.png"));
         stage = new Stage();
         image = new Image(texture);
-        image.setWidth(400);
-        image.setHeight(400);
         image.setX(Gdx.graphics.getWidth()/2-image.getWidth()/2);
         image.setY(Gdx.graphics.getHeight()/2-image.getHeight()/2);
 

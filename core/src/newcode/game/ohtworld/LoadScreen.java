@@ -2,6 +2,7 @@ package newcode.game.ohtworld;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -26,7 +27,9 @@ public class LoadScreen implements Screen {
     private TextureAtlas atlas;
     private Image image;
     private Label label;
+    private BitmapFont font;
     private Label.LabelStyle style;
+    private AssetManager manager = game.manager;
     private String labelText = "正在加载中...";
 
     public LoadScreen(MainGame game){
@@ -37,7 +40,8 @@ public class LoadScreen implements Screen {
     public void show() {
 
         loadActor = new LoadActor();
-        atlas = new TextureAtlas("image/load.plist");
+        atlas = manager.get("image/load.plist");
+        font = manager.get("fonts/loading.fnt");
         //设置加载界面的背景图
         image = new Image(atlas.findRegion("loadback"));
         image.setX(0);
@@ -45,7 +49,7 @@ public class LoadScreen implements Screen {
         image.setWidth(Gdx.graphics.getWidth());
         image.setHeight(Gdx.graphics.getHeight());
         //设置Label的样式
-        style = new Label.LabelStyle(new BitmapFont(Gdx.files.internal("fonts/loading.fnt")), Color.WHITE);
+        style = new Label.LabelStyle(font, Color.WHITE);
         label = new Label(labelText,style);
         label.setX(Gdx.graphics.getWidth()/2-label.getWidth()/2);
         label.setY(Gdx.graphics.getHeight() / 3);
@@ -86,6 +90,8 @@ public class LoadScreen implements Screen {
 
     @Override
     public void dispose() {
+        atlas.dispose();
+        stage.dispose();
     }
 
     /**
