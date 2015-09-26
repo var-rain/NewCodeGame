@@ -31,7 +31,7 @@ public class MainGame extends Game {
 	}
 
     /**
-     * 设置输入监听
+     * 监听输入
      */
     public void getInputlistener(){
         Gdx.input.setInputProcessor(inputListener);
