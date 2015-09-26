@@ -11,9 +11,11 @@ import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 /**
- * 用于显示logo的Screen.
- * 项目所属: NewCode
- * 创建时间: 2015/9/22.
+ * 项目名称: Game.
+ * 项目所属: NewCode.
+ * 创 建 人: Var "雨中行".
+ * 创建时间: 2015/9/25 16:55.
+ * 类 描 述: 打开游戏时显示的logo界面
  */
 public class WelcomScreen implements Screen {
 
@@ -34,31 +36,31 @@ public class WelcomScreen implements Screen {
     public void show() {
         texture = new Texture(Gdx.files.internal("logo.png"));
         tools = new Tools();
-        stage = game.getStage();
+        stage = new Stage();
         image = new Image(texture);
         TextureWidth = tools.centerWidth(texture);
         TextureHeight = tools.centerHeight(texture);
         image.setX(TextureWidth);
         image.setY(TextureHeight);
-//        设置动作监听
+        //设置动作监听
         endAction = Actions.run(new Runnable() {
             /**
              * 监听动作完成之后
              */
             @Override
             public void run() {
-//                设置显示的Screen
+                game.loadScreen.setLabelText("正在玩命加载中...");
+                //设置显示的Screen
                 game.setScreen(game.loadScreen);
-                System.out.println("This Screen will be Dispose...");
-//                销毁此Screen
+                //销毁此Screen
                 dispose();
             }
         });
-//        设置渐变动作
+        //设置渐变动作
         SequenceAction alpha = Actions.sequence(Actions.fadeIn(3),Actions.fadeOut(3), endAction);
-//        为演员添加动作
+        //为演员添加动作
         image.addAction(alpha);
-//        为舞台添加演员
+        //为舞台添加演员
         stage.addActor(image);
     }
 
@@ -67,7 +69,6 @@ public class WelcomScreen implements Screen {
         Gdx.gl20.glClearColor(0, 0, 0, 0);
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
-        game.updateFPS();
         stage.draw();
     }
 
@@ -94,6 +95,6 @@ public class WelcomScreen implements Screen {
     @Override
     public void dispose() {
         this.texture.dispose();
-//        this.stage.dispose();
+        this.stage.dispose();
     }
 }

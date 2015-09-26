@@ -2,15 +2,18 @@ package newcode.game.ohtworld;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+/**
+ * 项目名称: Game.
+ * 项目所属: NewCode.
+ * 创 建 人: Var "雨中行".
+ * 创建时间: 2015/9/25 16:55.
+ * 类 描 述: Screen的管理器
+ */
 public class MainGame extends Game {
 
-    private Stage stage;
-    private Skin skin;
-    private Label label;
+    private InputListener inputListener;
+
     public WelcomScreen welcomScreen;
     public StartScreen startScreen;
     public LoadScreen loadScreen;
@@ -18,50 +21,19 @@ public class MainGame extends Game {
 	@Override
 	public void create () {
 
-	    stage = new Stage();
-         skin = new Skin(Gdx.files.internal("json/resource.json"));
-         label = new Label("FPS:", skin.get("default", Label.LabelStyle.class));
-         label.setY(0);
-         label.setX(Gdx.graphics.getWidth()-label.getWidth() * 1.6f);
-         stage.addActor(label);
+         inputListener = new InputListener();
 
 	    welcomScreen = new WelcomScreen(this);
 	    startScreen = new StartScreen(this);
          loadScreen = new LoadScreen(this);
+         //设置初始Screen
 	    setScreen(welcomScreen);
 	}
 
     /**
-	* 获取舞台对象
-	* @return 返回舞台对象
-	*/
-    public Stage getStage(){
-	   return this.stage;
-    }
-
-    /**
-     * 获取显示FPS的label
-     * 注:此方法需在render方法中调用
+     * 设置输入监听
      */
-    public void updateFPS(){
-        //如果FPS小于40并且大于30时,将label的颜色设置为yellow
-        if (Gdx.graphics.getFramesPerSecond() < 40 && Gdx.graphics.getFramesPerSecond() >30 ){
-            label.setColor(skin.getColor("yellow"));
-        //如果FPS小等于30时,将label的颜色设置为red
-        }else if (Gdx.graphics.getFramesPerSecond() <= 30){
-            label.setColor(skin.getColor("red"));
-        //其他情况下,Label颜色均为green
-        }else {
-            label.setColor(skin.getColor("green"));
-        }
-        label.setText("FPS:"+Gdx.graphics.getFramesPerSecond());
-    }
-
-    /**
-     * 获取Skin对象
-     * @return 返回skin
-     */
-    public Skin getSkin(){
-        return this.skin;
+    public void getInputlistener(){
+        Gdx.input.setInputProcessor(inputListener);
     }
 }
