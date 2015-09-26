@@ -10,6 +10,13 @@ import com.badlogic.gdx.Screen;
  * 类 描 述: 关于我们的Screen
  */
 public class AboutScreen implements Screen{
+
+    MainGame game;
+
+    public AboutScreen(MainGame game){
+        this.game = game;
+    }
+
     @Override
     public void show() {
 

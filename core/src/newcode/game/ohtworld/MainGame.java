@@ -17,6 +17,7 @@ public class MainGame extends Game {
     public WelcomScreen welcomScreen;
     public StartScreen startScreen;
     public LoadScreen loadScreen;
+    public AboutScreen aboutScreen;
 
 	@Override
 	public void create () {
@@ -26,6 +27,7 @@ public class MainGame extends Game {
 	    welcomScreen = new WelcomScreen(this);
 	    startScreen = new StartScreen(this);
          loadScreen = new LoadScreen(this);
+         aboutScreen = new AboutScreen(this);
          //设置初始Screen
 	    setScreen(welcomScreen);
 	}

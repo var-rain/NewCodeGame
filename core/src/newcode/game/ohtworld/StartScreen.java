@@ -4,9 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
+
 /**
- * 游戏的开始界面
- * NewCode 创建于 2015/9/22.
+ * 项目名称: Game.
+ * 项目所属: NewCode.
+ * 创 建 人: Var "雨中行".
+ * 创建时间: 2015/9/25 16:55.
+ * 类 描 述: 游戏的开始界面
  */
 public class StartScreen implements Screen {
     MainGame game;
