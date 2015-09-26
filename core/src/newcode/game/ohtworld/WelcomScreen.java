@@ -21,9 +21,6 @@ public class WelcomScreen implements Screen {
 
     MainGame game;
     private Texture texture;
-    private int TextureWidth;
-    private int TextureHeight;
-    private Tools tools;
     private Stage stage;
     private Image image;
     private Action endAction;
@@ -35,13 +32,13 @@ public class WelcomScreen implements Screen {
     @Override
     public void show() {
         texture = new Texture(Gdx.files.internal("logo.png"));
-        tools = new Tools();
         stage = new Stage();
         image = new Image(texture);
-        TextureWidth = tools.centerWidth(texture);
-        TextureHeight = tools.centerHeight(texture);
-        image.setX(TextureWidth);
-        image.setY(TextureHeight);
+        image.setWidth(400);
+        image.setHeight(400);
+        image.setX(Gdx.graphics.getWidth()/2-image.getWidth()/2);
+        image.setY(Gdx.graphics.getHeight()/2-image.getHeight()/2);
+
         //设置动作监听
         endAction = Actions.run(new Runnable() {
             /**
